@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.Pageable;
 import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
@@ -30,7 +29,7 @@ public class SwaggerConfig {
     public Docket api() {
         return new Docket(DocumentationType.OAS_30)
                 .apiInfo(apiInfo())
-                .directModelSubstitute(Pageable.class, SwaggerPage.class)
+//                .directModelSubstitute(Pageable.class, SwaggerPage.class)
                 .select()
                 // 현재 RequestMapping으로 할당된 모든 URL 리스트를 추출
                 .apis(RequestHandlerSelectors.any())

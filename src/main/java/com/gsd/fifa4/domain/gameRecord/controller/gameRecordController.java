@@ -1,13 +1,15 @@
 package com.gsd.fifa4.domain.gameRecord.controller;
 
-import com.gsd.fifa4.domain.gameRecord.service.ClubPriceRankService;
 import com.gsd.fifa4.domain.gameRecord.service.MatchService;
 import com.gsd.fifa4.domain.gameRecord.service.UserService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
@@ -17,7 +19,7 @@ public class gameRecordController {
 
     private final MatchService matchService;
     private final UserService userService;
-    private final ClubPriceRankService clubPriceRankService;
+//    private final ClubPriceRankService clubPriceRankService;
 
 
     @GetMapping("/match/{nickName}")
@@ -25,7 +27,7 @@ public class gameRecordController {
             @PathVariable  String nickName,
             @RequestParam int offset,
             @RequestParam int limit){
-        clubPriceRankService.saveRank(nickName);
+//        clubPriceRankService.saveRank(nickName);
         return ResponseEntity.ok(matchService.getRecordList(nickName, offset, limit));
     }
 
@@ -46,11 +48,11 @@ public class gameRecordController {
         return ResponseEntity.ok(matchService.getClubPriceByMatch(matchId, nickName));
     }
 
-    @GetMapping("/club-rank")
-    public ResponseEntity<?> getClubRankList(Pageable pageable) {
-
-        return ResponseEntity.ok(clubPriceRankService.getList(pageable));
-    }
+//    @GetMapping("/club-rank")
+//    public ResponseEntity<?> getClubRankList(Pageable pageable) {
+//
+//        return ResponseEntity.ok(clubPriceRankService.getList(pageable));
+//    }
 
 
 }

@@ -1,15 +1,13 @@
 package com.gsd.fifa4.domain.board.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.gsd.fifa4.domain.board.model.Post;
 import com.querydsl.core.annotations.QueryProjection;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+import java.time.LocalDateTime;
+import javax.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import javax.validation.constraints.NotBlank;
-import java.time.LocalDateTime;
 
 /**
  * Created by Yohan lee
